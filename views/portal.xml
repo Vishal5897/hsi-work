@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>    
+
+    <template id="user_register">
+
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Menu 1</a></li>
+          <li><a href="#">Menu 2</a></li>
+          <li><a href="#">Menu 3</a></li>
+        </ul>
+        <t t-call="portal.portal_layout">
+        <form method="post">
+        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+        <div class="form-group">
+        <label for="txt_uname">User Name</label>
+        <input type="text" class="form-control" name="txt_uname" id="txt_uname" />
+        </div>
+        <div class="form-group">
+        <input type="radio"   name="user_type" value="8" t-att-checked="checked"/> student<br/>
+        <input type="radio" name="user_type" value="1"/> institute person<br/>
+        </div>
+        <div class="form-group d-none" id="compny_id">
+        <label for="txt_cname">Institute</label>
+        <input type="text" class="form-control" name="txt_company" id="txt_cname" />
+        </div>
+        <div class="form-group d-none" id="currncy_id">
+        <label for="txt_cuname">currency</label>
+        <select name="state_id" class="form-control state_id">
+        <t t-foreach="rec" t-as="state">
+        <option class="rec" t-att-value="state.id">
+        <t t-esc="state.name"/>
+        </option>
+        </t>
+        </select>
+        </div>
+        <div class="form-group">
+        <label for="txt_password">password</label>
+        <input type="password" class="form-control" name="txt_password" id="txt_fees" />
+        </div>
+        <button type="submit" class="btn btn-primary">submit</button>
+        </form>
+        </t>
+        </t>
+    </template>
+</odoo>
